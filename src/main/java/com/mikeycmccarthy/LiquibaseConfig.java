@@ -10,6 +10,7 @@ import javax.sql.DataSource;
 @Configuration
 public class LiquibaseConfig {
 
+    public static final String DEFAULT_CLASSPATH_LOCATION = "classpath:schema.xml";
     @Autowired
     DataSource dataSource;
 
@@ -17,7 +18,7 @@ public class LiquibaseConfig {
     public SpringLiquibase springLiquibase() {
         SpringLiquibase springLiquibase = new SpringLiquibase();
         springLiquibase.setDataSource(dataSource);
-        springLiquibase.setChangeLog("classpath:schema.xml");
+        springLiquibase.setChangeLog(DEFAULT_CLASSPATH_LOCATION);
         return springLiquibase;
     }
 
